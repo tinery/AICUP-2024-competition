@@ -20,6 +20,8 @@ pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --e
 pip install --user --requirement  requirements.txt # pip dependencies
 ```
 
+### Weights
+Link drive [Weights](https://drive.google.com/drive/folders/1mLgClpvm73F2PfR_laCfPdZw_sNB_09q?usp=sharing)
 
 ### Usage
 

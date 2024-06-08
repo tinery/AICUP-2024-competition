@@ -134,14 +134,14 @@ class Detection:
         return self.__str__()
 
 class Detector:
-    def __init__(self):
+    def __init__(self,args):
         self.seq_length = 0
         self.gmc = None
-        fast_reid_config = "fast_reid/configs/VeRi/sbs_R50-ibn.yml"
-        fast_reid_weights = "fast_reid/pretrained/model_0058_ft.pth"
+        fast_reid_config = args.model_config
+        fast_reid_weights = args.w_reid
         device = "gpu"
         self.encoder = FastReIDInterface(fast_reid_config, fast_reid_weights, device)
-        self.model = YOLO('pretrained/yolov8x.pt')
+        self.model = YOLO(args.w_detection)
     def load(self,cam_para_file):
         self.mapper = Mapper(cam_para_file,"MOT17")
         
@@ -181,7 +181,7 @@ def main(args):
 
     class_list = [0]
     fps = 1
-    detector = Detector()
+    detector = Detector(args)
     tracker = UCMCTrack(args.a, args.a, args.wx, args.wy, args.vmax, args.cdt, fps, "MOT", args.high_score,False,None)
     path = args.path +args.name
     if osp.isdir(path):
@@ -283,6 +283,9 @@ parser.add_argument('--high_score', type=float, default=0.5, help='high score th
 parser.add_argument('--conf_thresh', type=float, default=0.1, help='detection confidence threshold')
 parser.add_argument('--name', type=str,default='0903_150000_151900', help='save results to project/name')
 parser.add_argument('--path', type=str,default="/mnt/HDD8/tinery/MLSP/final_project/dataset/32_33_train_v2/train/images/", help='save results to project/name')
+parser.add_argument('--model_config', type=str,default="fast_reid/configs/VeRi/sbs_R50-ibn.yml", help='save results to project/name')
+parser.add_argument('--w_reid', type=str,default= "fast_reid/pretrained/model_0058_ft.pth", help='save results to project/name')
+parser.add_argument('--w_detection', type=str,default='pretrained/yolov8x.pt', help='save results to project/name')
 
 args = parser.parse_args()
  
