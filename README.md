@@ -2,7 +2,7 @@
 
 Team 5093: Luu Van Tin , Ngo Duc Thang, 林垣志, Nguyen Quang Sang
 
-![image](https://github.com/nycu-acm/Density-Imbalance-Eased/assets/135048598/00455271-3601-4332-a5ef-36be8ad8ed39)
+![image](https://github.com/tinery/AICUP-2024-competition/blob/main/image/overall.png)
 
 
 ### Install
@@ -10,7 +10,7 @@ Team 5093: Luu Van Tin , Ngo Duc Thang, 林垣志, Nguyen Quang Sang
 This implementation uses Python 3.8, [Pytorch](http://pytorch.org/),  Cuda 11.3. 
 ```shell
 # Copy/Paste the snippet in a terminal
-git clone https://github.com/nycu-acm/Density-Imbalance-Eased.git
+git clone https://github.com/tinery/AICUP-2024-competition.git
 cd Density-Imbalance-Eased
 
 #Dependencies
