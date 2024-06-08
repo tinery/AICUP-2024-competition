@@ -227,26 +227,21 @@ class UCMCTrack(object):
                     trk_idx = trackidx[j]
                     cost_matrix[i,j] = self.trackers[trk_idx].distance(dets[det_idx].y, dets[det_idx].R) -1
                     cost_matrix_f[i,j] =  np.maximum(0.0, cosine(self.trackers[trk_idx].smooth_feat, dets[det_idx].feature)) 
-
                     if self.trackers[trk_idx].tlbr is not None:
                         cost_matrix_i[i,j] = calculate_iou(self.trackers[trk_idx].tlbr, dets[det_idx].tlbr)
-
                     if self.trackers[trk_idx].center is not None:
                         (x1_a, y1_a), (x2_a, y2_a) = self.trackers[trk_idx].center, dets[det_idx].center
                         cond = (self.trackers[trk_idx].h/2) if camera_ID in cam_list else 0
                         cond1 = (dets[det_idx].bb_height/2)if camera_ID in cam_list else 0
                         vector_a = np.array([x2_a - x1_a, y2_a - y1_a])
-
                         if (math.sqrt(vector_a[0]**2+vector_a[1]**2) > self.vector_error):
                             max_a = 0
                             for k in range (len(polygon)):
                                 (x1_c, y1_c), (x2_c, y2_c) = inverse_vector[k][0], inverse_vector[k][1]
-
                                 if is_point_in_polygon((x1_a, y1_a + cond),polygon[k]) or \
                                     is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]):
                                     vector_a_ = np.array([x2_a - x1_a, y2_a - y1_a])
                                     vector_b_ = np.array([x2_c - x1_c, y2_c - y1_c])
-
                                     if is_point_in_polygon((x1_a, y1_a + cond ),polygon[k]) and \
                                     is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]):
                                         max_a = cosine(vector_a_, vector_b_)
@@ -256,18 +251,15 @@ class UCMCTrack(object):
                                             max_a = cosine(vector_a_, vector_b_)
                             if max_a > 0:
                                 cost_matrix_p[i,j] = max_a
-
+                                
                         elif (math.sqrt(vector_a[0]**2+vector_a[1]**2) <= self.vector_error) and (math.sqrt(vector_a[0]**2+vector_a[1]**2) >  self.min_vector/2) :
                             for k in range (len(polygon)):
                                 (x1_c, y1_c), (x2_c, y2_c) = inverse_vector[k][0], inverse_vector[k][1]
-
                                 if (is_point_in_polygon((x1_a, y1_a + cond),polygon[k]) + is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]))>0:
                                     vector_a_ = np.array([x2_a - x1_a, y2_a - y1_a])
                                     vector_b_ = np.array([x2_c - x1_c, y2_c - y1_c])
-
                                     if cosine(vector_a_, vector_b_) > 1.5:
                                         cost_matrix_p[i,j] = 2
-
                         if camera:
                             flag_intersect = False
                             for n in range(len(limit_vector)):
@@ -337,26 +329,21 @@ class UCMCTrack(object):
                     trk_idx = trackidx_remain[j]
                     cost_matrix[i,j] = self.trackers[trk_idx].distance(dets[det_idx].y, dets[det_idx].R) - 1
                     cost_matrix_f[i,j] =  np.maximum(0.0, cosine(self.trackers[trk_idx].smooth_feat, dets[det_idx].feature))
-
                     if self.trackers[trk_idx].tlbr is not None:
                         cost_matrix_i[i,j] = calculate_iou(self.trackers[trk_idx].tlbr, dets[det_idx].tlbr)
-
                     if self.trackers[trk_idx].center is not None:
                         (x1_a, y1_a), (x2_a, y2_a) = self.trackers[trk_idx].center, dets[det_idx].center
                         cond = (self.trackers[trk_idx].h/2) if camera_ID in ['5','6'] else 0
                         cond1 = (dets[det_idx].bb_height/2)if camera_ID in ['5','6'] else 0
                         vector_a = np.array([x2_a - x1_a, y2_a - y1_a])
-
                         if (math.sqrt(vector_a[0]**2+vector_a[1]**2) > self.vector_error):
                             max_a = 0
                             for k in range (len(polygon)):
                                 (x1_c, y1_c), (x2_c, y2_c) = inverse_vector[k][0], inverse_vector[k][1]
-
                                 if is_point_in_polygon((x1_a, y1_a + cond),polygon[k]) or \
                                     is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]):
                                     vector_a_ = np.array([x2_a - x1_a, y2_a - y1_a])
                                     vector_b_ = np.array([x2_c - x1_c, y2_c - y1_c])
-
                                     if is_point_in_polygon((x1_a, y1_a + cond ),polygon[k]) and \
                                     is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]):
                                         max_a = cosine(vector_a_, vector_b_)
@@ -370,7 +357,6 @@ class UCMCTrack(object):
                         elif (math.sqrt(vector_a[0]**2+vector_a[1]**2) <= self.vector_error) and (math.sqrt(vector_a[0]**2+vector_a[1]**2) >  self.min_vector/2) :
                             for k in range (len(polygon)):
                                 (x1_c, y1_c), (x2_c, y2_c) = inverse_vector[k][0], inverse_vector[k][1]
-
                                 if (is_point_in_polygon((x1_a, y1_a + cond),polygon[k]) + is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]))>0:
                                     vector_a_ = np.array([x2_a - x1_a, y2_a - y1_a])
                                     vector_b_ = np.array([x2_c - x1_c, y2_c - y1_c])
@@ -389,17 +375,13 @@ class UCMCTrack(object):
                                 cost_matrix_v[i,j] = cosine(vector_a, vector_b) 
                         if flag_intersect:
                             cost_matrix_v[i,j]  = 2
-
             cost_matrix_i= np.where(cost_matrix_i>0.8,0.5,1)
             cost_matrix_v = custom_function(cost_matrix_v,cost_matrix_i,limit_angle,cost_matrix_p)
-         
             if flag_color:
                 cost_matrix =cost_matrix*cost_matrix_v 
             else:    
-                cost_matrix = np.minimum(cost_matrix, cost_matrix_f)*cost_matrix_v
-            
+                cost_matrix = np.minimum(cost_matrix, cost_matrix_f)*cost_matrix_v       
             matched_indices,unmatched_a,unmatched_b = linear_assignment(cost_matrix,self.a2)
-
             for i in unmatched_b:
                 trk_idx = trackidx_remain[i]
                 self.trackers[trk_idx].status = TrackStatus.Coasted
@@ -442,27 +424,22 @@ class UCMCTrack(object):
             for j in range(num_trk):
                 trk_idx = self.tentative_idx[j]
                 cost_matrix[i,j] = self.trackers[trk_idx].distance(dets[det_idx].y, dets[det_idx].R) - 1 
-                cost_matrix_f[i,j] = np.maximum(0.0, cosine(self.trackers[trk_idx].smooth_feat, dets[det_idx].feature)) 
-                
+                cost_matrix_f[i,j] = np.maximum(0.0, cosine(self.trackers[trk_idx].smooth_feat, dets[det_idx].feature))  
                 if self.trackers[trk_idx].tlbr is not None:
                     cost_matrix_i[i,j] = calculate_iou(self.trackers[trk_idx].tlbr, dets[det_idx].tlbr)
-
                 if self.trackers[trk_idx].center is not None:
                         (x1_a, y1_a), (x2_a, y2_a) = self.trackers[trk_idx].center, dets[det_idx].center
                         cond = (self.trackers[trk_idx].h/2) if camera_ID in cam_list else 0
                         cond1 = (dets[det_idx].bb_height/2)if camera_ID in cam_list else 0
                         vector_a = np.array([x2_a - x1_a, y2_a - y1_a])
-
                         if (math.sqrt(vector_a[0]**2+vector_a[1]**2) > self.vector_error):
                             max_a = 0
                             for k in range (len(polygon)):
                                 (x1_c, y1_c), (x2_c, y2_c) = inverse_vector[k][0], inverse_vector[k][1]
-
                                 if is_point_in_polygon((x1_a, y1_a + cond),polygon[k]) or \
                                     is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]):
                                     vector_a_ = np.array([x2_a - x1_a, y2_a - y1_a])
                                     vector_b_ = np.array([x2_c - x1_c, y2_c - y1_c])
-
                                     if is_point_in_polygon((x1_a, y1_a + cond ),polygon[k]) and \
                                     is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]):
                                         max_a = cosine(vector_a_, vector_b_)
@@ -476,7 +453,6 @@ class UCMCTrack(object):
                         elif (math.sqrt(vector_a[0]**2+vector_a[1]**2) <= self.vector_error) and (math.sqrt(vector_a[0]**2+vector_a[1]**2) >  self.min_vector/2) :
                             for k in range (len(polygon)):
                                 (x1_c, y1_c), (x2_c, y2_c) = inverse_vector[k][0], inverse_vector[k][1]
-
                                 if (is_point_in_polygon((x1_a, y1_a + cond),polygon[k]) + is_point_in_polygon((x2_a, y2_a + cond1),polygon[k]))>0:
                                     vector_a_ = np.array([x2_a - x1_a, y2_a - y1_a])
                                     vector_b_ = np.array([x2_c - x1_c, y2_c - y1_c])
