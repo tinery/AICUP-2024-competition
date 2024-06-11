@@ -27,7 +27,7 @@ yacs
 termcolor
 gdown
 onnx==1.12
-onnxruntime==1.8.0
+onnxruntime==1.12
 onnx-simplifier==0.3.5
 xmltodict>=0.12.0
 # Cython-bbox
