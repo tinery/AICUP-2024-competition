@@ -2,7 +2,7 @@
 [Competition](https://tbrain.trendmicro.com.tw/Competitions/Details/33)
 Team 5093: Luu Van Tin , Ngo Duc Thang, 林垣志, Nguyen Quang Sang
 
-### This work earn the 6th place among 101 teams
+### This work earn the 6th place among 286 teams
 ![image](https://github.com/tinery/AICUP-2024-competition/blob/main/image/lb.png)
 
 ### Pipeline of our tracking method
@@ -27,4 +27,5 @@ Link drive [Weights](https://drive.google.com/drive/folders/1mLgClpvm73F2PfR_laC
 
 ### Usage
 
-*Demo:*    ```./run_submit.sh```
+*Demo :*    ```./run_submit.sh```
+*Demo with colab:*    [ipynb file](https://tbrain.trendmicro.com.tw/Competitions/Details/33)
