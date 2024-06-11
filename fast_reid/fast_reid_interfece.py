@@ -75,7 +75,7 @@ class FastReIDInterface:
 
     def inference(self, image, detections):
 
-        if detections is None or np.size(detections) == 0:
+        if detections is None or detections[0].boxes.shape[0] == 0:
             return []
 
         H, W, _ = np.shape(image)

@@ -200,8 +200,8 @@ def main(args):
         camera_ID = img_path[-11]
         detector.load(args.cam_para+camera_ID+'.txt')
         flag_change_cam = False
-        if camera_ID != "0":
-            continue
+        # if camera_ID != "0":
+        #     continue
         if camera_ID != cam_prv:
             flag_change_cam = True
             cam_prv = camera_ID
