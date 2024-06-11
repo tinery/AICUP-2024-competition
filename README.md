@@ -28,4 +28,4 @@ Link drive [Weights](https://drive.google.com/drive/folders/1mLgClpvm73F2PfR_laC
 ### Usage
 
 Demo :    ```./run_submit.sh``` <br>
-Demo with colab: [ipynb file](https://colab.research.google.com/drive/1JhZn74iufFo03VShJwyz2YaludL96e44#scrollTo=jB83q1UYGqLK)
+Demo with colab: [ipynb file](https://colab.research.google.com/drive/1xrGFTbhR0yjhzXqRxamLNtGMQAe-V5sH#scrollTo=3eR65IfWoKbz)
