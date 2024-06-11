@@ -27,5 +27,5 @@ Link drive [Weights](https://drive.google.com/drive/folders/1mLgClpvm73F2PfR_laC
 
 ### Usage
 
-*Demo :*    ```./run_submit.sh```
-*Demo with colab:*    [ipynb file](https://tbrain.trendmicro.com.tw/Competitions/Details/33)
+Demo :    ```./run_submit.sh``` <br>
+Demo with colab: [ipynb file](https://tbrain.trendmicro.com.tw/Competitions/Details/33)
