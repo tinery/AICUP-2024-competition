@@ -4,10 +4,11 @@ Team 5093: Luu Van Tin , Ngo Duc Thang, 林垣志, Nguyen Quang Sang
 
 ### This work earn the 6th place among 286 teams
 ![image](https://github.com/tinery/AICUP-2024-competition/blob/main/image/lb.png)
-[Supplementary](https://github.com/tinery/AICUP-2024-competition/tree/main/doc/method.pdf)
 
 ### Pipeline of our tracking method
 ![image](https://github.com/tinery/AICUP-2024-competition/blob/main/image/overall.png)
+[Supplementary](https://github.com/tinery/AICUP-2024-competition/tree/main/doc/method.pdf)
+
 
 ### Install
 This implementation uses Python 3.8, [Pytorch](http://pytorch.org/),  Cuda 11.3. 
