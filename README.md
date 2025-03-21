@@ -2,8 +2,7 @@
 [Competition](https://tbrain.trendmicro.com.tw/Competitions/Details/33)
 Team 5093: Luu Van Tin , Ngo Duc Thang, 林垣志, Nguyen Quang Sang
 
-### This work earn the 6th place among 286 teams
-![image](https://github.com/tinery/AICUP-2024-competition/blob/main/image/lb.png)
+### This work earn the 3th place among 286 teams and creative award
 
 ### Pipeline of our tracking method
 ![image](https://github.com/tinery/AICUP-2024-competition/blob/main/image/overall.png)
